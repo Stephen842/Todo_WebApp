@@ -1,0 +1,1 @@
+This is a web application for managing tasks that I intend to develop using Django, HTML, and CSS. The goal behind creating this project is to delve deeply into the workings of the Django framework, enhancing my understanding, and acquiring valuable skills in my programming journey.
