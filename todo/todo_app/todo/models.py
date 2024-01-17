@@ -5,7 +5,8 @@ from django.utils import timezone
 
 class Todo(models.Model):
     title = models.CharField(max_length = 200)
-    details = models.TextField()
+    details = models.TextField(null = True, blank = True)
+    completed = models.BooleanField(default = False)
     date = models.DateTimeField(default = timezone.now)
 
     def __str__(self):
