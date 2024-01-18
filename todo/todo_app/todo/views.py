@@ -3,6 +3,7 @@ from django.contrib import messages
 
 from .models import Todo
 from .forms import TodoForm
+from datetime import datetime
 
 # Create your views here.
 
@@ -15,10 +16,13 @@ def todo(request):
             return redirect('todo')
     form = TodoForm()
 
+    current_datetime = datetime.now()
+
     page = {
             'forms': form,
             'list': item,
             'title': 'Todo List',
+            'date': current_datetime,
             }
     return render(request, 'todo/todo.html', page)
 

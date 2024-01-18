@@ -7,10 +7,17 @@ body{
 	font-family: verdana;
 }
 
+.title{
+	position: absolute;
+	padding-top: 37px;
+	font-weight: 500;
+	padding-left: 12px;
+	color: #fff;
+}
 
 .nav-bar{
 	background: #4169E1;
-	height: 70px;
+	height: 80px;
 }
 
 .nav-bar ul {
@@ -24,7 +31,8 @@ li {
 	display: inline;
 	float: right;
 	margin-left: 100px;
-	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 50px
 }
 
 li a{
@@ -40,5 +48,15 @@ li a:hover{
 
 h1{
 	font-weight: 400;
+}
+
+footer{
+        color: #000;
+        text-align: center;
+}
+
+footer a{
+        text-decoration: none;
+        color: #4169E1;
 }
 

@@ -4,24 +4,31 @@
     <head>
         <meta charset = 'utf-8'>
         <meta name = 'viewport' content = 'width = device - width, initial-scale = 1'>
-        <link rel = 'stylesheet' href = '{% static 'style.css' %}'>
+        <link rel = 'stylesheet' href ='{% static 'style.css' %}'>
         <link rel = 'stylesheet' href = 'https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
         <link rel = 'stylesheet' href = 'https://fonts.googleapis.com/icon?family=Material+Icons'>
         <meta http-equiv = 'Content-Type' content = 'text/html; charset = utf-8'>
         <meta name 'author' content = 'Pythogenius'>
         <title> {{ title }} </title>
+        <style type = 'text/css'>
+            
+        </style>
         </head>
 
     <body>
         <header>
+            <h1 class = 'title'> TaskHub.com </h1>
+            <div class = 'nav-bar'>
             <nav>
                 <ul>
-                    <li><a href ='#'> Home </a></li>
-                    <li><a href ='#'> Add Task </a></li>
-                    <li><a href ='#'> Task </a></li>
-                    <li><a href ='#'> Calender </a></li>
+                    {# i used reversed order to place this list at the right using the 'float:right' css properties cos at this time i dont know how best to solve it #}
+                    <li><a href ='#'> <i class='bx bxs-calendar'></i> Calender </a></li>
+                     <li><a href ='#'> <i class='bx bx-task'></i> Task </a></li>
+                     <li><a href ='#'> <i class='bx bxs-home'></i> Home </a></li>
+                    
                 </ul> 
-            </nav> 
+            </nav>
+            </div> 
         </header> 
         <hr/>
         <section>
@@ -34,9 +41,7 @@
         </section>
     </body>
 
-    <hr/>
-
     <footer>
-        <p> &copy; Copyright {{ Y }} by <a href = '#'>PythoGenius </a>
+        <p> &copy; Copyright {{ date|date:'Y' }} by <a href = '#'>PythoGenius </a>
     </footer>  
 </html>
