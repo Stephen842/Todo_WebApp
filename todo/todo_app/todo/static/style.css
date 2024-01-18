@@ -1,0 +1,44 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box
+}
+body{
+	font-family: verdana;
+}
+
+
+.nav-bar{
+	background: #4169E1;
+	height: 70px;
+}
+
+.nav-bar ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+li {
+	display: inline;
+	float: right;
+	margin-left: 100px;
+	padding-left: 5px;
+}
+
+li a{
+        text-decoration: none;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+}
+
+li a:hover{
+	color: #000;
+}
+
+h1{
+	font-weight: 400;
+}
+
