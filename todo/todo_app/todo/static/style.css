@@ -4,8 +4,19 @@
 	box-sizing: border-box
 }
 body{
-	font-family: verdana;
+	font-family: Tangerine, serif;
 }
+
+// <uniquifier>: Use a uniquifier for the class name
+// <weight>: Use a value from 400 to 700
+
+.lora-<uniquifier> {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
 
 .title{
 	position: absolute;
@@ -48,6 +59,39 @@ li a:hover{
 
 h1{
 	font-weight: 400;
+}
+
+.start{
+	text-decoration: none;
+	border: 1.5px solid #4169E1;
+	background: #4169E1;
+	outline: none;
+	border-radius: 4px;
+	color: #fff;
+	height: 15px;
+	width: 60px;
+        font-size: 20px;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+.start:hover{
+	color: #000;
+	pointer: cursor;
+}
+
+.body{
+	margin-top: 100px;
+	position: absolute;
+	padding: 50px;
+}
+.body p{
+	padding-top: 15px;
+	font-size: 20px;
+}
+
+img{
+	float: right;
 }
 
 footer{
