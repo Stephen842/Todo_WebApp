@@ -35,7 +35,28 @@
         </header>
         <hr/>
 
+	<div class = 'add-task'>
+		<form method = 'POST'>
+			{% csrf_token %}
+			{{ forms }}
+			<input type = 'submit' class = 'btn' value = 'Add'/>
+		</form>
 
+	</div>
+
+	{% for x in list %}
+
+	<div class = 'list_of_task'>
+		<h3> {{ x.title }} </h3>
+		<p> {{ x.details }} </p>
+		<p><small> {{ x.date}} </small></p>
+		<br/>
+		<form action = '/del/{{ x.id }}' method = 'POST'>
+			{% csrf_token %}
+			<button value = 'del' type = 'submit' class = 'del_btn'> Delete </button>
+		</form>
+	</div>
+	{% endfor %}
 
 	</body>
 
