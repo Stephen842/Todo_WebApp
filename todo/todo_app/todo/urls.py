@@ -4,7 +4,8 @@ from .import views
 from django.conf.urls.static import static
 
 urlpatterns = [
-        path('', views.todo, name = 'todo'),
+        path('', views.home, name = 'home'),
+        path('todo/', views.todo, name = 'todo'),
         path('del/<str:item_id>', views.remove, name = 'del'),
         ]
 

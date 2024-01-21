@@ -7,6 +7,9 @@ from datetime import datetime
 
 # Create your views here.
 
+def home(request):
+    return render(request, 'todo/home.html')
+
 def todo(request):
     item = Todo.objects.order_by('-date')
     if request.method == 'POST':

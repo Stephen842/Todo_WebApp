@@ -14,7 +14,7 @@
         <meta name 'author' content = 'Pythogenius'>
         <title> {{ title }} </title>
         <style type = 'text/css'>
-
+            
         </style>
         </head>
 
@@ -28,19 +28,25 @@
                     <li><a href ='#'> <i class='bx bxs-calendar'></i> Calender </a></li>
                      <li><a href ='/todo'> <i class='bx bx-task'></i> Task </a></li>
                      <li><a href ='/'> <i class='bx bxs-home'></i> Home </a></li>
-
-                </ul>
+                    
+                </ul> 
             </nav>
+            </div> 
+        </header> 
+       <hr/>
+	<section>
+            <div class = 'body'>
+                <h1><b> Todo </b></h1>
+                <p> Todo boosts focus for productivity in work and leisure. </p>
+                <br>
+                <p class = 'start'><a href = '/todo' class = 'btn'> Get Started </a></p>
             </div>
-        </header>
-        <hr/>
+            <img src = '{% static 'todo.jpg' %}' alt = 'image' />
+	</section>
 
-
-
-	</body>
+            </body>
 
     <footer>
         <p> &copy; Copyright {{ date|date:'Y' }} by <a href = '#'>PythoGenius </a>
-    </footer>
+    </footer>  
 </html>
-
