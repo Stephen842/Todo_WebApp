@@ -4,6 +4,7 @@ from django.contrib import messages
 from .models import Todo
 from .forms import TodoForm
 from datetime import datetime
+from django.utils import timezone
 
 # Create your views here.
 
@@ -20,6 +21,7 @@ def todo(request):
     form = TodoForm()
 
     current_datetime = datetime.now()
+
 
     page = {
             'forms': form,

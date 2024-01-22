@@ -1,0 +1,31 @@
+.list_of_task{
+        position: absolute;
+        width: 35%;
+        height: 87%;
+        top: 0;
+        right: 0;
+        background: rgba(110, 110, 110, .25);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, .3);
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, .18);
+        z-index: 1;
+        padding: 3em 2em;
+        overflow-Y: scroll;
+        overflow-x: hidden;
+        outline: none;
+	margin-top: 5em;
+}
+.list{
+	margin-bottom: 5%;
+	border-radius: 25px;
+	padding: 2%;
+	overflow: auto;
+	text-overflow: ellipsis;
+	resize: both;
+	border: 2px solid #000
+}
+
+h2{
+	text-align: center;
+}
