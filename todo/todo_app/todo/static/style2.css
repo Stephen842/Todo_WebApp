@@ -1,3 +1,9 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 .list_of_task{
         position: absolute;
         width: 35%;
@@ -14,16 +20,33 @@
         overflow-Y: scroll;
         overflow-x: hidden;
         outline: none;
-	margin-top: 5em;
+	margin-top: 5em;;
+	scrollbar-width: thin;
+	scrollbar-color: transparent transparent;
 }
+/* this below is for the scroll bar for browser such as chrome and safari, keeping the scroll bar invisible*/
+
+.list_of_task::-webkit-scrollbar{
+	width: 8px;
+}
+.list_of_task::-webkit-scrollbar-thumb{
+	background-color: transparent;
+}
+
+
 .list{
-	margin-bottom: 5%;
-	border-radius: 25px;
-	padding: 2%;
-	overflow: auto;
-	text-overflow: ellipsis;
-	resize: both;
-	border: 2px solid #000
+	margin-top: 40px;
+	position: relative;
+	width: 400px;
+	/*border: 1px solid black;*/
+}
+
+.list2{
+	margin-bottom: 8px;
+}
+.list2 .del_btn{
+	float: right;
+	margin-top: -25px;
 }
 
 h2{
