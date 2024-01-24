@@ -1,10 +1,11 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 
 from .models import Todo
 from .forms import TodoForm
 from datetime import datetime
 from django.utils import timezone
+import random
 
 # Create your views here.
 
@@ -31,8 +32,26 @@ def todo(request):
             }
     return render(request, 'todo/todo.html', page)
 
-# this function below removes item from the todo list
+# this function below update an item in the todo list
+def update(request, item_id):
+    todo = Todo.objects.get(id = item_id)
+    form = TodoForm(instance = todo)
 
+    if request.method == 'POST':
+        form = TodoForm(request.POST, instance = todo)
+        if form.is_valid():
+            form.save()
+            return redirect('todo')
+    else:
+        form = TodoForm(instance=todo)
+
+    context ={
+            'form': form,
+            'todo': todo,
+            }
+    return render(request, 'todo/todo.html', context)
+
+# this function below removes item from the todo list
 def remove(request, item_id):
     item = Todo.objects.get(id = item_id)
     item.delete()
