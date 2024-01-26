@@ -4,17 +4,13 @@
 	box-sizing: border-box;
 }
 .add-task{
-	margin-top: 40px;
+	margin-top: 20px;
 	margin-left: 40px;
 }
 
-Textinput{
-	margin-top: 20px;
-	margin-bottom: 20px;
-	padding: 10px;
-	border: 1px solid #4169E1;
-	border-radius: 3px;
-	width: 450px;
+label{
+	padding-top: 8px !important;
+	display: block;
 }
 
 Textarea{
@@ -27,14 +23,6 @@ Textarea{
 	font-weight: 500;
 }
 
-CheckboxInput{
-	margin-bottom: 20px;
-}
-
-date{
-	margin-top: 10px;
-}
-
 .btn{
 	background-color: #4169E1;
 	color: #fff;
@@ -42,8 +30,8 @@ date{
 	border: none;
 	border-radius: 3px;
 	cursor: pointer;
-	margin-left: 425px;
-	margin-top: 80px;
+	margin-left: 380px;
+	margin-top: 40px;
 	margin-bottom: 10px;
 }
 
