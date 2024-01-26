@@ -3,6 +3,49 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+.add-task{
+	margin-top: 40px;
+	margin-left: 40px;
+}
+
+Textinput{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 10px;
+	border: 1px solid #4169E1;
+	border-radius: 3px;
+	width: 450px;
+}
+
+Textarea{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border: 1px solid #4169E1;
+	border-radius: 3px;
+	width: 450px;
+	padding: 10px;
+	font-weight: 500;
+}
+
+CheckboxInput{
+	margin-bottom: 20px;
+}
+
+date{
+	margin-top: 10px;
+}
+
+.btn{
+	background-color: #4169E1;
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+	margin-left: 425px;
+	margin-top: 80px;
+	margin-bottom: 10px;
+}
 
 .list_of_task{
         position: absolute;
@@ -24,7 +67,7 @@
 	scrollbar-width: thin;
 	scrollbar-color: transparent transparent;
 }
-/* this below is for the scroll bar for browser such as chrome and safari, keeping the scroll bar invisible*/
+/* this below is for the scroll bar for browser such as chrome and safari, keeping the scroll bar invisible */
 
 .list_of_task::-webkit-scrollbar{
 	width: 8px;
@@ -38,7 +81,6 @@
 	margin-top: 40px;
 	position: relative;
 	width: 400px;
-	/*border: 1px solid black;*/
 }
 
 .list2{
@@ -48,6 +90,11 @@
 .list2 .del_btn{
 	float: right;
 	margin-top: -12px;
+	cursor: pointer;
+	background: #4169E1;
+	outline: none;
+	color: #fff;
+	border:;
 }
 
 h2{
