@@ -9,8 +9,8 @@
 	border: none;
 	border-bottom: 1px solid #4169E1;
 	padding: 0 1em .5em 0;
-	width: 80%;
-	color: #fff;
+	width: 90%;
+	color: #000;
 	font-size: 1.1em;
 	margin-top: 2.07em;
 	margin-right: 8em;
@@ -19,7 +19,26 @@
 	outline: none;
 }
 .search:placeholder{
-	color: #fff
+	color: #000
+}
+
+.submit{
+	position: absolute;
+	top: 100;
+	right: 45px;
+	padding: 10px;
+	margin-top: -39px;
+	border: none;
+	outline: none;
+	color: #000;
+	background: #4169E1;
+	cursor: pointer;
+	font-size: 1em;
+	transition: .4s;
+}
+
+.submit:hover{
+	color: #fff;
 }
 
 .add-task{

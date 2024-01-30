@@ -55,7 +55,7 @@
             <form method  = 'get' action = '{% url 'search' %}'>
                 {% csrf_token %}
                 <input type = 'text' class = 'search' name = 'search_field' placeholder = 'Search Item'/>
-                <button type = 'submit' value = 'Search'> <i class='bx bx-search-alt-2'></i> </button>
+                <button type = 'submit' class = 'submit'> <i class='bx bx-search-alt-2'></i> </button>
             </form>
         </div>
 
