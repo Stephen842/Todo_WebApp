@@ -3,6 +3,25 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+
+.search{
+	background: none;
+	border: none;
+	border-bottom: 1px solid #4169E1;
+	padding: 0 1em .5em 0;
+	width: 80%;
+	color: #fff;
+	font-size: 1.1em;
+	margin-top: 2.07em;
+	margin-right: 8em;
+}
+.search:focus{
+	outline: none;
+}
+.search:placeholder{
+	color: #fff
+}
+
 .add-task{
 	margin-top: 20px;
 	margin-left: 40px;
@@ -16,7 +35,6 @@ label{
 Textarea{
 	margin-top: 20px;
 	margin-bottom: 20px;
-	border: 1px solid #4169E1;
 	border-radius: 3px;
 	width: 450px;
 	padding: 10px;
