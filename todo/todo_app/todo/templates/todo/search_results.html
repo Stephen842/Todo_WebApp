@@ -38,9 +38,9 @@
 
         <div>
             <h2>Searched Result</h2>
-            <ul>
+            <ul class = 'searches'>
                 {% for i in object_list %}
-		<li><a href = 'details/{{x.id}}'> {{ i }} </a></li>
+		            <p class = 'searched_display'><a href = 'details/{{x.id}}'> {{ i }} </a></p>
                 {% endfor %}
             </ul>
 

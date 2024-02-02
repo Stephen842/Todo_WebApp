@@ -179,3 +179,19 @@ h2{
 	padding: 3px;
 	color: #fff
 }
+
+/*
+ * This part of code is use to style the search_results.html templates
+ */
+.searches a{
+	color: #000;
+	cursor: pointer;
+	text-decoration: none;
+}
+.searches a:hover{
+	color: #4169E1;
+}
+.searched_display{
+	padding: 20px;
+	display: block;
+}
