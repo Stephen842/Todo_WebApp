@@ -44,12 +44,12 @@
         <div class = 'det_form'>
             <form action = '/update/{{ x.id}}' method = 'POST'>
             	{% csrf_token %}
-            	<button type = 'submit'> Edit<i class='bx bxs-edit' class = 'icon'></i> </button>
+            	<button type = 'submit' class = 'button1'> Edit<i class='bx bxs-edit' class = 'icon'></i> </button>
         	</form>
 
             <form action = '/del/{{ x.id }}' method = 'POST'>
                 {% csrf_token %}
-                <button type = 'submit'> Del<i class='bx bx-trash' class = 'icon'></i> </button>
+                <button type = 'submit' class = 'button2'> Del<i class='bx bx-trash' class = 'icon'></i> </button>
             </form>
         </div>
 

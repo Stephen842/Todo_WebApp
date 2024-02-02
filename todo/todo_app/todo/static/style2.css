@@ -28,7 +28,7 @@
 	top: 100;
 	right: 45px;
 	padding: 10px;
-	margin-top: -39px;
+	margin-top: -38px;
 	border: none;
 	outline: none;
 	color: #000;
@@ -76,7 +76,7 @@ Textarea{
 .list_of_task{
         position: absolute;
         width: 35%;
-        height: 87%;
+        height: 100%;
         top: 0;
         right: 0;
         background: rgba(110, 110, 110, .25);
@@ -148,10 +148,10 @@ h2{
 	padding: 10px;
 }
 
-.det_form button{
-	margin-top: 100px;
+.det_form .button1{
+	margin-top: 70px;
 	margin-left: 300px;
-	padding: 10px;
+	padding: 5px;
 	background: #4169E1;
 	cursor: pointer;
 	color: #fff;
@@ -159,8 +159,21 @@ h2{
 	outline: none;
 	border: none;
 	border-radius: 3px solid #4169E1;
-	display: inline;
 }
+.det_form .button2{
+        position: absolute;
+	margin-top: -30px;
+        margin-left: 400px;
+        padding: 5px;
+        background: #4169E1;
+        cursor: pointer;
+        color: #fff;
+        width: 70px;
+        outline: none;
+        border: none;
+        border-radius: 3px solid #4169E1;
+}
+
 
 .det_form i{
 	padding: 3px;
