@@ -40,7 +40,7 @@
             <h2>Searched Result</h2>
             <ul>
                 {% for i in object_list %}
-                  <li>{{ i }}</li>
+		<li><a href = 'details/{{x.id}}'> {{ i }} </a></li>
                 {% endfor %}
             </ul>
 
