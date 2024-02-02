@@ -37,25 +37,21 @@
         <hr/>
 
 	<div class = 'detail'>
-		<h2> {{ item.title }}</h2>
+		<h2 class = 'det_title'> {{ item.title|upper }} </h2>
 
-		<h4> {{ item.details }}</h4>
+		<h4 class = 'det_details'> {{ item.details }} </h4>
 
-		<p>
-	        <div>
-                    <form action = '/update/{{ x.id}}' method = 'POST'>
-                    	{% csrf_token%}
-                    	<button type = 'submit' class ='update'> Edit<i class='bx bxs-edit'></i> </button>
-                	</form>
-            	</div>
+        <div class = 'det_form'>
+            <form action = '/update/{{ x.id}}' method = 'POST'>
+            	{% csrf_token %}
+            	<button type = 'submit'> Edit<i class='bx bxs-edit' class = 'icon'></i> </button>
+        	</form>
 
-	      	<div class = 'del_btn'>
-                        <form action = '/del/{{ x.id }}' method = 'POST'>
-                                {% csrf_token %}
-                                <button type = 'submit' class = 'del'> Del<i class='bx bx-trash'></i> </button>
-                        </form>
-            	</div>
-		</p>
+            <form action = '/del/{{ x.id }}' method = 'POST'>
+                {% csrf_token %}
+                <button type = 'submit'> Del<i class='bx bx-trash' class = 'icon'></i> </button>
+            </form>
+        </div>
 
 
 

@@ -131,3 +131,38 @@ Textarea{
 h2{
 	text-align: center;
 }
+
+/*
+ * This part of code is use to style the details.html templates
+ */
+
+.det_title{
+	padding: 10px;
+	text-align: left;
+	font-weight: 600;
+	margin-top: 100px;
+	margin-bottom: 10px;
+}
+
+.det_details{
+	padding: 10px;
+}
+
+.det_form button{
+	margin-top: 100px;
+	margin-left: 300px;
+	padding: 10px;
+	background: #4169E1;
+	cursor: pointer;
+	color: #fff;
+	width: 70px;
+	outline: none;
+	border: none;
+	border-radius: 3px solid #4169E1;
+	display: inline;
+}
+
+.det_form i{
+	padding: 3px;
+	color: #fff
+}
