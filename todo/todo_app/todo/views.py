@@ -35,8 +35,8 @@ def todo(request):
     return render(request, 'todo/todo.html', page)
 
 #this function below is to have access by linking items so as to get access to what is stored in them. i call it details
-def details(request, item_id):
-    item_details = Todo.objects.get(id = item_id)
+def details(request, id):
+    item_details = Todo.objects.get(id = id)
     context = {
             'item': item_details,
             }

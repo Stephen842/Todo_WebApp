@@ -72,7 +72,7 @@
             
              {# this part of the code uses the update function in my views.py file so as to enable me edit an item in a list#}
              <div class='up_btn'>
-                <form action = '{% url 'update' x.id %}' method = 'POST'> 
+                <form action = '/update/{{ x.id}}' method = 'POST'>
                     {% csrf_token%}
                     <button type = 'submit'> <i class='bx bxs-edit'></i> </button>
                 </form>

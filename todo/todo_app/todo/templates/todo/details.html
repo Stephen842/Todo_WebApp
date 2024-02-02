@@ -43,9 +43,9 @@
 
 		<p>
 	        <div>
-                	<form action = '{% url 'update' x.id %}' method = 'POST'>
+                    <form action = '/update/{{ x.id}}' method = 'POST'>
                     	{% csrf_token%}
-                    		<button type = 'submit' class ='update'> Edit<i class='bx bxs-edit'></i> </button>
+                    	<button type = 'submit' class ='update'> Edit<i class='bx bxs-edit'></i> </button>
                 	</form>
             	</div>
 
