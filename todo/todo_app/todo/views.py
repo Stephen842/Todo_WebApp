@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-
 from .models import Todo
 from .forms import TodoForm
 from datetime import datetime
@@ -8,7 +7,16 @@ from django.utils import timezone
 import random
 from django.db.models import Q
 from django.views.generic import TemplateView, ListView
-
+ 
+ #this modules below is for user authentication part and registration
+from django.contrib.auth import authenticate, login as auth_login
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import AuthenticationForm
+from .forms import UserRegisterForm
+from django.core.mail import send_mail
+from django.core.mail import EmailMultiAlternatives
+ 
+ 
 # Create your views here.
 
 def home(request):
@@ -82,14 +90,46 @@ class SearchResultsViews(ListView):
                 )
         return object_list
 
-#def search(request):
- #   if request.method == 'GET':
-  #      form = SearchForm(request.GET)
-   #     if form.is_valid():
-    #        search_query = form.clean_data['search_query']
-     #       todos = Todo.objects.filter(title__icontains=search_query)
-     #       return render(request, 'todo/search_results.html', {'todo': todos, 'query': search_query})
-    #else:
-     #   form = SearchForm()
 
-    #return render(request, 'todo.html', {'form': form})
+def register(request):
+    form = UserRegisterForm()
+
+    if request.method == 'POST':
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            user.refresh_from_db()
+
+            user.save()
+
+            user_password = form.cleaned_data.get('password1')
+
+
+
+            messages.success(request, 'Account created successfully ! You can now log in')
+
+            user = authenticate(username = user.username, password = user_password)
+            if user is not None:
+                auth_login(request, user)
+                return redirect('todo')
+            else:
+                messages.error(request, 'Error Processing Your Request')
+        
+    context = {'form': form, 'title': 'Register Here'}
+    return render(request, 'todo/signup.html', context)
+
+### login forms function below ###
+
+def login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username = username, password = password)
+
+        if user is not None:
+            form = auth_login(request, user)
+            return redirect('todo')
+        else:
+            messages.info(request, f'Invalid username or password. Please try again')
+    form = AuthenticationForm() 
+    return render(request, 'todo/login.html', {'form': form, 'title': 'Login'})
