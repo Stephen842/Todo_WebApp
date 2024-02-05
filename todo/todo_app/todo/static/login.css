@@ -1,0 +1,120 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: 'poppins', sans-serif;
+	box-sizing: border-box;
+	color: #fff;
+}
+
+body{
+	display: flex;
+	background-color: green;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background: url(night1.jpg) no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.container{
+	width: 440px;
+	background: transparent;
+	border: 4px solid rgba(255, 255, 255, .2);
+	backdrop-filter: blur(9px);
+	color: #fbeacd;
+	border-radius: 12px;
+	padding: 30px 40px;
+}
+
+.container h2{
+	font-size: 30px;
+	text-align: center;
+}
+
+.container .input-field{
+	position: relative;
+	width: 100%;
+	height: 50px;
+	margin: 30px 0;
+}
+
+
+.input-field input{
+        width: 100%;
+        height: 80%;
+        background: transparent;
+        border: none;
+        outline: none;
+        border: 2px solid rgba(255, 255, 255, .2);
+        border-radius: 35px;
+        font-size: 16px;
+        color: #fbeacd;
+        padding: 20px 45px 20px 20px;
+}
+
+
+.input-field input::placeholder{
+	color: #fff;
+}
+
+.input-field i{
+	position: absolute;
+	right: 20px;
+	top: 60%;
+	transform: translate(-50%);
+	font-size: 20px;
+	color: #000;
+}
+
+.container .remember-forgot{
+	display: flex;
+	justify-content: space-between;
+	font-size: 14px;
+	margin: -15px 0 15px;
+}
+
+.remember-forgot label input{
+	accent-color: #fbeacd;
+	margin-right: 3px;
+}
+
+.remember-forgot a{
+	color: #fbeacd;
+	text-decoration: none;
+}
+
+.remember-forgot a:hover{
+	text-decoration: underline;
+}
+
+.container .btn{
+	width: 100%;
+	height: 45px;
+	background: #fbeacd;
+	border: none;
+	outline: none;
+	border-radius: 40px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+	cursor: pointer;
+	font-size: 16px;
+	color: black;
+	font-weight: 600;
+}
+
+.container .register-part{
+	font-size: 14px;
+	text-align: center;
+	margin: 20px 0 15px;
+}
+
+.register-part p a{
+	color: #fbeacd;
+	text-decoration: none;
+	font-weight: 600;
+}
+
+.register-part p a:hover{
+	text-decoration: underline;
+}
+
