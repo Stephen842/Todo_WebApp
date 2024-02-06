@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang = 'en'>
+    <head>
+        <meta charset = 'utf-8'>
+        <meta name = 'viewport' content = 'width = device - width, initial-scale = 1'>
+        <link rel = 'stylesheet' href ='{% static 'style.css' %}'>
+	    <link rel = 'stylesheet' href ='{% static 'login.css'%}'>
+        <link rel = 'stylesheet' href = 'https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+        <link rel = 'stylesheet' href = 'https://fonts.googleapis.com/icon?family=Material+Icons'>
+        <meta http-equiv = 'Content-Type' content = 'text/html; charset = utf-8'>
+        <meta name 'author' content = 'Pythogenius'>
+        <title> Login </title>
+    </head>
+
+    <body>
+        <div class = 'container'>
+            <form method = 'POST'>
+                 <h2> Welcome Back </h2>
+        
+                {% csrf_token %}
+        
+                <div class = 'input-field'>
+                    <label> Username </label>
+                    <br>
+                    <input type = 'text' id = '{{form.username}}' name = 'username' placeholder = 'Enter Your Username'>
+                    <i class='bx bx-user-circle'></i>
+                </div>
+        
+                <div class = 'input-field'>
+                                <label> Password </label>
+                    <br>
+                    <input type = 'password' id = '{{form.password}}' name = 'password' placeholder = 'Password'>}
+                    <i class='bx bx-lock-alt'></i>
+                        </div>
+        
+        
+                <div class = 'remember-forgot'>
+                    <label> <input type = 'checkbox'> Remember Me </label>
+                    <a href = '{% url 'password_reset'%}'> Forgot Password </a>
+                </div>
+        
+                <button type = 'submit' class = 'btn'> Login </button>
+        
+                <div class = 'register-part'>
+        
+                <p>Don't have an account?  <a href = '{% url 'register' %}'> Sign up</a></p>
+        
+                </div>
+        
+            </form>
+        
+        </div>
+        
+    </body>
+
+    <footer>
+        <p> &copy; Copyright {{ date|date:'Y' }} by <a href = '#'>PythoGenius </a>
+    </footer>

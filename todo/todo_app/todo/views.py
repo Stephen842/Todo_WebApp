@@ -111,7 +111,7 @@ def register(request):
             user = authenticate(username = user.username, password = user_password)
             if user is not None:
                 auth_login(request, user)
-                return redirect('todo')
+                return redirect('home')
             else:
                 messages.error(request, 'Error Processing Your Request')
         
@@ -128,7 +128,7 @@ def login(request):
 
         if user is not None:
             form = auth_login(request, user)
-            return redirect('todo')
+            return redirect('home')
         else:
             messages.info(request, f'Invalid username or password. Please try again')
     form = AuthenticationForm() 

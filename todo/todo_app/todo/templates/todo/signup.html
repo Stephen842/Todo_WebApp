@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang = 'en'>
+    <head>
+        <meta charset = 'utf-8'>
+        <meta name = 'viewport' content = 'width = device - width, initial-scale = 1'>
+        <link rel= 'stylesheet' href='{% static 'signup.css' %}'>
+        <link rel = 'stylesheet' href ='{% static 'style.css' %}'>
+	    <link rel = 'stylesheet' href ='{% static 'style2.css'%}'>
+        <link rel = 'stylesheet' href = 'https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+        <link rel = 'stylesheet' href = 'https://fonts.googleapis.com/icon?family=Material+Icons'>
+        <meta http-equiv = 'Content-Type' content = 'text/html; charset = utf-8'>
+        <meta name 'author' content = 'Pythogenius'>
+        <title> Register here </title>
+        <style type = 'text/css'>
+
+        </style>
+        </head>
+
+    <body>
+
+        <div class = 'container'>
+            <form method = 'POST'>
+                {% csrf_token %}
+                <h2> Create Account </h2>
+                    <div class = column-2>
+            
+                        {% if form.errors %}
+                            {% for field in form %}
+                                {% for error in field.errors %}
+                                    <div class = 'danger-alert'>
+                                        <strong> {{ error | escape }} </strong>
+                                        <strong> {{ field | escape }} </strong>
+                                    </div>
+                                {% endfor %}
+                            {% endfor %}
+                        
+                            {% for error in form.non_field_errors %}
+                                <div class = 'danger-alert'>
+                                    <strong> {{ error | escape }}</strong>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+            
+                    </div>
+                        
+                    <div class = 'input-field'>
+                        
+                        {{ form.first_name }}
+                        <i class='bx bx-user'></i>
+                        {% if form.first_name.errors %}
+                        {% for error in form.first_name.errors %}
+            
+                        <div class = 'danger-alert'>
+                            <strong> {{error | escape }} </strong>
+                        </div>
+            
+                        {% endfor %}
+                        {% endif %}
+                    
+                    </div>
+            
+                    <div class = 'input-field'>
+            
+                            {{ form.last_name }}
+                            <i class='bx bx-user'></i>
+                                    {% if form.last_name.errors %}
+                                    {% for error in form.last_name.errors %}
+            
+                                    <div class = 'danger-alert'>
+                                            <strong> {{error | escape }} </strong>
+                                    </div>
+            
+                                    {% endfor %}
+                                    {% endif %}
+            
+                    </div>
+            
+                    <div class = 'input-field'>
+            
+                            {{ form.username }}
+                            <i class='bx bx-user-circle'></i>
+                                    {% if form.username.errors %}
+                                    {% for error in form.username.errors %}
+            
+                                    <div class = 'danger-alert'>
+                                            <strong> {{error | escape }} </strong>
+                                    </div>
+            
+                                    {% endfor %}
+                                    {% endif %}
+            
+                    </div>
+            
+                    <div class = 'input-field'>
+            
+                            {{ form.email }}
+                            <i class='bx bx-envelope'></i>
+                                    {% if form.email.errors %}
+                                    {% for error in form.email.errors %}
+            
+                                    <div class = 'danger-alert'>
+                                            <strong> {{error | escape }} </strong>
+                                    </div>
+            
+                                    {% endfor %}
+                                    {% endif %}
+            
+                    </div>
+            
+                    <div class = 'input-field'>
+            
+                            {{ form.password1 }}
+                            <i class='bx bx-lock-alt'></i>
+                                    {% if form.password1.errors %}
+                                    {% for error in form.password1.errors %}
+            
+                                    <div class = 'danger-alert'>
+                                            <strong> {{error | escape }} </strong>
+                                    </div>
+            
+                                    {% endfor %}
+                                    {% endif %}
+            
+                    </div>
+            
+                    <div class = 'input-field'>
+            
+                            {{ form.password2 }}
+                            <i class='bx bx-lock-alt'></i>
+                                    {% if form.password2.errors %}
+                                    {% for error in form.password2.errors %}
+            
+                                    <div class = 'danger-alert'>
+                                            <strong> {{error | escape }} </strong>
+                                    </div>
+            
+                                    {% endfor %}
+                                    {% endif %}
+            
+                    </div>
+            
+                    <div class = 'check'>
+                        <div class = 'form-group'>
+                            <div class = 'checkbox'>
+                                {{ form.check }}
+                                <label> I Accept Terms And Condition </label>
+                            </div>
+                             {% if form.check.errors %}
+                             {% for error in form.check.errors %}
+            
+                             <div class = 'danger-alert'>
+                                            <strong> {{error | escape }} </strong>
+                             </div>
+            
+                             {% endfor %}
+                             {% endif %}
+            
+                        </div>
+                    </div>
+            
+                    <div class = 'column-2'>
+                        <button type = 'submit' class = 'btn'> Sign Up </button>
+                    </div>
+            
+                    <div class = 'login-part'>
+                        <p> Already have an account ? <a href = '{%url 'login'%}'> Sign in </a></p>
+                    </div>
+            
+            
+            </form>
+            </div>
+
+    </body>
+
