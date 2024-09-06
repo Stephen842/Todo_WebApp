@@ -34,10 +34,21 @@
 
 	    <div class = 'add-task'>
             <form method = 'POST'>
-                {% csrf_token %}
-                {{ form.as_p }}
+			    {% csrf_token %}
+                <div class='form-group'>
+                    <input type = 'text' name='title' maxlength='254' required id='id_title' placeholder='Title' class='title2'>
+                </div>
+
+                <div class='form-group'>
+                    <textarea name='details' cols='40' rows='10' required id='id_details' placeholder='Enter Description' class='detail'></textarea>
+                </div>
+
+                <div class='form-group'>
+                    {{ form.completed }} <small>Tick if Completed</small>
+                </div>
+                
                 <button type = 'submit' class = 'btn'> Submit </button>
-            </form>
+		    </form>
         </div>
 
        

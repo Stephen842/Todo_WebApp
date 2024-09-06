@@ -61,7 +61,7 @@
 
         {# this part of the code uses the search function in my views.py file so as to enable me search for an item in a list#}
         <div>
-            <form method  = 'get' action = '{% url 'search' %}'>
+            <form method  = 'get' action = "{% url 'search' %}">
                 <input type = 'text' class = 'search' name = 'search_field' placeholder = 'Search Item'/>
                 <button type = 'submit' class = 'submit'> <i class='bx bx-search-alt-2'></i> </button>
             </form>

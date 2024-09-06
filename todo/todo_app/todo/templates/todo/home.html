@@ -13,10 +13,7 @@
         <meta http-equiv = 'Content-Type' content = 'text/html; charset = utf-8'>
         <meta name='author' content = 'Pythogenius'>
         <title> TaskHub </title>
-        <style type = 'text/css'>
-            
-        </style>
-        </head>
+    </head>
 
     <body>
         <header>
@@ -36,20 +33,20 @@
             </nav>
             </div> 
         </header> 
-       <hr/>
-	<section>
-        <div class = 'body'>
-            <h1><b> Welcome {{ user.username }}! </b></h1>
-            <p> Todo boosts focus for productivity in work and leisure. </p>
-            <br>
-            <p class = 'start'><a href = '/todo' class = 'btn'> Get Started </a></p>
-        </div>
-        <img src = "{% static 'todo.jpg' %}" alt = 'image' />
-	</section>
+        <hr/>
+	    
+        <section>
+            <div class = 'body'>
+                <h1><b> Welcome {{ user.username }}! </b></h1>
+                <p> Todo boosts focus for productivity in work and leisure. </p>
+                <br>
+                <p class = 'start'><a href = '/todo' class = 'btn'> Get Started </a></p>
+            </div>
+            <img src = "{% static 'todo.jpg' %}" alt = 'image' />
+	    </section>
 
-            </body>
-
-    <footer>
-        <p> &copy; Copyright {{ date|date:'Y' }} by <a href = 'https://github.com/Stephen842'>PythoGenius </a>
-    </footer>  
+        <footer>
+            <p> &copy; Copyright {{ date|date:'Y' }} by <a href = 'https://github.com/Stephen842'>PythoGenius </a>
+        </footer>  
+    </body>
 </html>

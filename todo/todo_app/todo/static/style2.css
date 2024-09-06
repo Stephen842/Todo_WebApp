@@ -5,6 +5,43 @@
 	color: #000;
 }
 
+.add-task{
+	margin-top: 30px;
+	margin-left: 20px;
+	padding: 10px;
+}
+
+.title2{
+    width: 55%;
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #ff7474;
+    border-bottom-right-radius: 1px;
+    border-color: #ff7474;
+	font-size: 20px;
+	border-radius: 4px;
+}
+.title2::placeholder {
+    color: #4169E1;
+	font-size: 20px;
+}
+.detail{
+    width: 55%;
+    background: transparent;
+    outline: none;
+    border-bottom: 1px solid #ff7474;
+    border-bottom-right-radius: 1px;
+    border-color: #ff7474;
+}
+.detail::placeholder {
+    color: #4169E1;
+	font-size: 15px;
+}
+.form-group {
+    margin-bottom: 15px; /* Adds space between form fields */
+}
+
 .search{
 	background: none;
 	border: none;
@@ -42,11 +79,6 @@
 	color: #fff;
 }
 
-.add-task{
-	margin-top: 20px;
-	margin-left: 40px;
-}
-
 label{
 	padding-top: 8px !important;
 	display: block;
@@ -68,27 +100,27 @@ Textarea{
 	border: none;
 	border-radius: 3px;
 	cursor: pointer;
-	margin-left: 380px;
-	margin-top: 40px;
+	margin-left: 600px;
+	margin-top: 10px;
 	margin-bottom: 10px;
 }
 
 .list_of_task{
-        position: absolute;
-        width: 35%;
-        height: 100%;
-        top: 0;
-        right: 0;
-        background: rgba(110, 110, 110, .25);
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, .3);
-        backdrop-filter: blur(3px);
-        -webkit-backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, .18);
-        z-index: 1;
-        padding: 3em 2em;
-        overflow-Y: scroll;
-        overflow-x: hidden;
-        outline: none;
+    position: absolute;
+    width: 35%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background: rgba(110, 110, 110, .25);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, .3);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, .18);
+    z-index: 1;
+    padding: 3em 2em;
+    overflow-Y: scroll;
+    overflow-x: hidden;
+    outline: none;
 	margin-top: 5em;;
 	scrollbar-width: thin;
 	scrollbar-color: transparent transparent;
@@ -161,17 +193,17 @@ h2{
 	border-radius: 3px solid #4169E1;
 }
 .det_form .button2{
-        position: absolute;
+    position: absolute;
 	margin-top: -30px;
-        margin-left: 400px;
-        padding: 5px;
-        background: #4169E1;
-        cursor: pointer;
-        color: #fff;
-        width: 70px;
-        outline: none;
-        border: none;
-        border-radius: 3px solid #4169E1;
+    margin-left: 400px;
+    padding: 5px;
+    background: #4169E1;
+    cursor: pointer;
+    color: #fff;
+    width: 70px;
+    outline: none;
+    border: none;
+    border-radius: 3px solid #4169E1;
 }
 
 
