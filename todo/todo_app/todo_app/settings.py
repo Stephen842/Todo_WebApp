@@ -120,10 +120,6 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = [
-                    BASE_DIR / 'mystaticfiles'
-                    ]
-
 STATIC_ROOT = BASE_DIR / 'allstaticfiles'
 
 STORAGES = {
@@ -136,6 +132,8 @@ STORAGES = {
             },
         }
 
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
 LOGIN_REDIRECT_URL = '/'
 
 # Default primary key field type
