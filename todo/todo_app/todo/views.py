@@ -9,55 +9,60 @@ from django.db.models import Q
 from django.views.generic import TemplateView, ListView
  
  #this modules below is for user authentication part and registration
-from django.contrib.auth import authenticate, login as auth_login
+from django.contrib.auth import authenticate, login as auth_login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import UserRegisterForm
-from django.core.mail import send_mail
-from django.core.mail import EmailMultiAlternatives
- 
  
 # Create your views here.
 
 def home(request):
     return render(request, 'todo/home.html')
 
+@login_required
 def todo(request):
-    item = Todo.objects.order_by('-date')
+    #Get the todos for the currently logged-in user only
+    item = Todo.objects.filter(user=request.user).order_by('-date')
+
     if request.method == 'POST':
         form = TodoForm(request.POST)
         if form.is_valid():
-            form.save()
+            todo = form.save(commit=False)
+            todo.user = request.user #Attach the logged in user
+            todo.save()
             return redirect('todo')
-    form = TodoForm()
+    else:
+        form = TodoForm()
 
     current_datetime = datetime.now()
 
-
-    page = {
-            'forms': form,
-            'list': item,
+    context = {
+            'form': form,
+            'item': item,
             'title': 'Todo List',
             'date': current_datetime,
             }
-    return render(request, 'todo/todo.html', page)
+    return render(request, 'todo/todo.html', context)
 
 #this function below is to have access by linking items so as to get access to what is stored in them. i call it details
+@login_required
 def details(request, id):
-    item_details = Todo.objects.get(id = id)
+    item_details = get_object_or_404(Todo, id=id, user=request.user) #To user ownership
+    list1 = Todo.objects.filter(user=request.user).order_by('-date') #Only shows user's todos
     context = {
             'item': item_details,
+            'list1': list1
             }
     return render(request, 'todo/details.html', context)
 
 # this function below update an item in the todo list
+@login_required
 def update(request, item_id):
-    todo = Todo.objects.get(id = item_id)
-    form = TodoForm(instance = todo)
-    item = Todo.objects.order_by('-date')
+    todo = get_object_or_404(Todo, id=item_id, user=request.user) #Ensures user ownership
+    item = Todo.objects.filter(user=request.user).order_by('-date')
 
     if request.method == 'POST':
-        form = TodoForm(request.POST, instance = todo)
+        form = TodoForm(request.POST, instance=todo)
         if form.is_valid():
             form.save()
             return redirect('todo')
@@ -67,13 +72,14 @@ def update(request, item_id):
     context ={
             'form': form,
             'todo': todo,
-            'list': item,
+            'item': item,
             }
     return render(request, 'todo/todo.html', context)
 
 # this function below removes item from the todo list
+@login_required
 def remove(request, item_id):
-    item = Todo.objects.get(id = item_id)
+    item = get_object_or_404(Todo, id=item_id, user=request.user) #Ensures user ownership
     item.delete()
     messages.info(request, 'item removed')
     return redirect('todo')
@@ -133,3 +139,7 @@ def login(request):
             messages.info(request, f'Invalid username or password. Please try again')
     form = AuthenticationForm() 
     return render(request, 'todo/login.html', {'form': form, 'title': 'Login'})
+
+def sign_out(request):
+    logout(request)
+    return redirect('home')

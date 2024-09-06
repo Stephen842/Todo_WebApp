@@ -14,8 +14,10 @@ urlpatterns = [
         
         #this part is for user authentication routes(urls)
         path('login/', todo_view.login, name = 'login'),
-        path('logout/', auth.LogoutView.as_view(template_name = 'todo/home.html'), name = 'logout'),
+        path('logout/', todo_view.sign_out, name = 'logout'),
         path('register/', todo_view.register, name = 'register'),
+
+        # Password reset routes
         path('password-reset/', auth.PasswordResetView.as_view(template_name = 'todo/password_reset.html'), name = 'password_reset'),
         path('password-reset/', auth.PasswordResetView.as_view(template_name = 'todo/password_reset_email.html'), name = 'password_reset'),
         path('password-reset/done/', auth.PasswordResetDoneView.as_view(template_name = 'todo/password_reset_done.html'), name = 'password_reset_done'),

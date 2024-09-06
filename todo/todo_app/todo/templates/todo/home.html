@@ -11,7 +11,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
         <link rel = 'stylesheet' href = 'https://fonts.googleapis.com/icon?family=Material+Icons'>
         <meta http-equiv = 'Content-Type' content = 'text/html; charset = utf-8'>
-        <meta name 'author' content = 'Pythogenius'>
+        <meta name='author' content = 'Pythogenius'>
         <title> TaskHub </title>
         <style type = 'text/css'>
             
@@ -20,38 +20,36 @@
 
     <body>
         <header>
-            <h1><a href = '/' class = 'title'> TaskHub.com </a></h1>
+            <h1><a href = '/' class = 'title'> TaskHub </a></h1>
             <div class = 'nav-bar'>
             <nav>
-                {% if user.is_authenticated %}
                 <ul>
                     {# i used reversed order to place this list at the right using the 'float:right' css properties cos at this time i dont know how best to solve it #}
-                    <li><a href ='/logout'> <i class='bx bx-log-out'></i> Log Out </a></li>
-                     <li><a href ='/todo'> <i class='bx bx-task'></i> Task </a></li>
-                     <li><a href ='/'> <i class='bx bxs-home'></i> Home </a></li>                    
+                    {% if user.is_authenticated %}
+                        <li><a href ="{% url 'logout' %}"> <i class='bx bx-log-out'></i> Log Out </a></li>
+                    {% else %}
+                        <li><a href ="{% url 'login' %}"> <i class='bx bx-log-in'></i> Sign In </a></li>
+                    {% endif %}
+                    <li><a href ="{% url 'todo' %}"> <i class='bx bx-task'></i> Task </a></li>
+                    <li><a href ='/'> <i class='bx bxs-home'></i> Home </a></li>                    
                 </ul> 
-                {% endif %}
             </nav>
             </div> 
         </header> 
        <hr/>
 	<section>
-        {% if user.is_authenticated %}
-            <div class = 'body'>
-                <h1><b> Welcome {{ user.username }}! </b></h1>
-                <p> Todo boosts focus for productivity in work and leisure. </p>
-                <br>
-                <p class = 'start'><a href = '/todo' class = 'btn'> Get Started </a></p>
-            </div>
-            <img src = '{% static 'todo.jpg' %}' alt = 'image' />
-        {% else %}
-            <center><h1>Your session has timed out. Please click the link to  <a href = '{% url 'login'%}'> continue</a></h1></center>
-        {% endif %}
+        <div class = 'body'>
+            <h1><b> Welcome {{ user.username }}! </b></h1>
+            <p> Todo boosts focus for productivity in work and leisure. </p>
+            <br>
+            <p class = 'start'><a href = '/todo' class = 'btn'> Get Started </a></p>
+        </div>
+        <img src = "{% static 'todo.jpg' %}" alt = 'image' />
 	</section>
 
             </body>
 
     <footer>
-        <p> &copy; Copyright {{ date|date:'Y' }} by <a href = '#'>PythoGenius </a>
+        <p> &copy; Copyright {{ date|date:'Y' }} by <a href = 'https://github.com/Stephen842'>PythoGenius </a>
     </footer>  
 </html>

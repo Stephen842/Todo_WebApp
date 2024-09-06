@@ -3,16 +3,16 @@
 <html lang = 'en'>
     <head>
         <meta charset = 'utf-8'>
-        <meta name = 'viewport' content = 'width = device - width, initial-scale = 1'>
-        <link rel = 'stylesheet' href ='{% static 'style.css' %}'>
-	    <link rel = 'stylesheet' href ='{% static 'style2.css'%}'>
+        <meta name = 'viewport' content = 'width=device-width, initial-scale=1'>
+        <link rel = 'stylesheet' href ="{% static 'style.css' %}">
+	    <link rel = 'stylesheet' href ="{% static 'style2.css'%}">
         <link rel = 'stylesheet' href = 'https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
         <link rel = 'stylesheet' href = 'https://fonts.googleapis.com/icon?family=Material+Icons'>
         <meta http-equiv = 'Content-Type' content = 'text/html; charset = utf-8'>
-        <meta name 'author' content = 'Pythogenius'>
+        <meta name='author' content = 'Pythogenius'>
         <title> Details Of Item </title>
         <style type = 'text/css'>
 
@@ -21,7 +21,7 @@
 
     <body>
         <header>
-            <h1><a href = '/' class = 'title'> TaskHub.com </a></h1>
+            <h1><a href = '/' class = 'title'> TaskHub </a></h1>
             <div class = 'nav-bar'>
             <nav>
                 <ul>
@@ -42,19 +42,16 @@
 		<h4 class = 'det_details'> {{ item.details }} </h4>
 
         <div class = 'det_form'>
-            <form action = '/update/{{ x.id}}' method = 'POST'>
+            <form action="{% url 'update' item.id %}" method = 'POST'>
             	{% csrf_token %}
             	<button type = 'submit' class = 'button1'> Edit<i class='bx bxs-edit' class = 'icon'></i> </button>
         	</form>
 
-            <form action = '/del/{{ x.id }}' method = 'POST'>
+            <form action="{% url 'del' item.id %}" method = 'POST'>
                 {% csrf_token %}
                 <button type = 'submit' class = 'button2'> Del<i class='bx bx-trash' class = 'icon'></i> </button>
             </form>
         </div>
-
-
-
 	</div>
 
        
@@ -65,18 +62,17 @@
         {# this part of the code uses the search function in my views.py file so as to enable me search for an item in a list#}
         <div>
             <form method  = 'get' action = '{% url 'search' %}'>
-                {% csrf_token %}
                 <input type = 'text' class = 'search' name = 'search_field' placeholder = 'Search Item'/>
                 <button type = 'submit' class = 'submit'> <i class='bx bx-search-alt-2'></i> </button>
             </form>
         </div>
 
         <div class = 'list'>
-        {% for x in list %}
+        {% for x in list1 %}
 
         <div class = 'list2'>
 	
-		<a href = 'details/{{x.id}}'>
+		<a href="{% url 'details' x.id %}">
             <h3> {{ x.title }} </h3>
 		    <p> {{ x.details }} </p>
 		    <p><small> {{ x.date}} </small></p>
@@ -84,7 +80,7 @@
             
              {# this part of the code uses the update function in my views.py file so as to enable me edit an item in a list#}
              <div class='up_btn'>
-                <form action = '{% url 'update' x.id %}' method = 'POST'> 
+                <form action="{% url 'update' x.id %}" method = 'POST'> 
                     {% csrf_token%}
                     <button type = 'submit'> <i class='bx bxs-edit'></i> </button>
                 </form>
@@ -92,7 +88,7 @@
              
             {# this part of the code uses the remove function in my views.py file so as to enable me delete an item in a list#}
             <div class = 'del_btn'>       
-		        <form action = '/del/{{ x.id }}' method = 'POST'>
+		        <form action="{% url 'del' x.id %}" method = 'POST'>
 			        {% csrf_token %}
 			        <button type = 'submit' class = 'del_btn'> <i class='bx bx-trash'></i> </button>
 		        </form>
@@ -107,6 +103,6 @@
 	</body>
 
     <footer>
-        <p> &copy; Copyright {{ date|date:'Y' }} by <a href = '#'>PythoGenius </a>
+        <p> &copy; Copyright {{ date|date:'Y' }} by <a href = 'https://github.com/Stephen842'>PythoGenius </a></p>
     </footer>
 </html>

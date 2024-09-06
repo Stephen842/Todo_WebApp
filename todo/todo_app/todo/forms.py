@@ -10,7 +10,7 @@ class TodoForm(forms.ModelForm):
 
     class Meta:
         model = Todo
-        fields = ['title', 'details', 'date'] 
+        fields = ['title', 'details', 'completed'] 
         widget = {
                 'title': forms.TextInput(attrs = {'class': 'title2', 'placeholder': 'Enter Title'}),
                 'details': forms.Textarea(attrs = {'class': 'details', 'placeholder': 'Enter Description'}),

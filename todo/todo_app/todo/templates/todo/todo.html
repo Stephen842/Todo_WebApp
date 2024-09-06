@@ -3,99 +3,90 @@
 <html lang = 'en'>
     <head>
         <meta charset = 'utf-8'>
-        <meta name = 'viewport' content = 'width = device - width, initial-scale = 1'>
-        <link rel = 'stylesheet' href ='{% static 'style.css' %}'>
-	    <link rel = 'stylesheet' href ='{% static 'style2.css'%}'>
+        <meta name = 'viewport' content = 'width=device-width, initial-scale=1'>
+        <link rel = 'stylesheet' href ="{% static 'style.css' %}">
+	    <link rel = 'stylesheet' href ="{% static 'style2.css'%}">
         <link rel = 'stylesheet' href = 'https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
         <link rel = 'stylesheet' href = 'https://fonts.googleapis.com/icon?family=Material+Icons'>
         <meta http-equiv = 'Content-Type' content = 'text/html; charset = utf-8'>
-        <meta name 'author' content = 'Pythogenius'>
+        <meta name='author' content = 'Pythogenius'>
         <title> {{ title }} </title>
-        <style type = 'text/css'>
-
-        </style>
-        </head>
+    </head>
 
     <body>
         <header>
-            <h1><a href = '/' class = 'title'> TaskHub.com </a></h1>
+            <h1><a href = '/' class = 'title'> TaskHub </a></h1>
             <div class = 'nav-bar'>
             <nav>
                 <ul>
                     {# i used reversed order to place this list at the right using the 'float:right' css properties cos at this time i dont know how best to solve it #}
-                    <li><a href ='/logout'> <i class='bx bx-log-out'></i> Log Out </a></li>
-                     <li><a href ='/todo'> <i class='bx bx-task'></i> Task </a></li>
-                     <li><a href ='/'> <i class='bx bxs-home'></i> Home </a></li>
-
+                    <li><a href ="{% url 'logout' %}"> <i class='bx bx-log-out'></i> Log Out </a></li>
+                    <li><a href ="{% url 'todo' %}"> <i class='bx bx-task'></i> Task </a></li>
+                    <li><a href ='/'> <i class='bx bxs-home'></i> Home </a></li>
                 </ul>
             </nav>
             </div>
         </header>
         <hr/>
 
-	<div class = 'add-task'>
-		<form method = 'POST'>
-			{% csrf_token %}
-            {{ forms.as_p }}
-            <button type = 'submit' class = 'btn'/>Submit </button>
-		</form>
-
-	</div>
+	    <div class = 'add-task'>
+		    <form method = 'POST'>
+			    {% csrf_token %}
+                {{ form.as_p }}
+                <button type = 'submit' class = 'btn'> Submit </button>
+		    </form>
+        </div>
 
        
-    <div class = 'list_of_task'>    
-        <h2>{{ date|date:'H:i A' }}</h2>
-        <h2>{{ date|date:'D d M Y' }}</h2>
+        <div class = 'list_of_task'>    
+            <h2>{{ date|date:'H:i A' }}</h2>
+            <h2>{{ date|date:'D d M Y' }}</h2>
 
-        {# this part of the code uses the search function in my views.py file so as to enable me search for an item in a list#}
-        <div>
-            <form method  = 'get' action = '{% url 'search' %}'>
-                {% csrf_token %}
-                <input type = 'text' class = 'search' name = 'search_field' placeholder = 'Search Item'/>
-                <button type = 'submit' class = 'submit'> <i class='bx bx-search-alt-2'></i> </button>
-            </form>
-        </div>
-
-        <div class = 'list'>
-        {% for x in list %}
-
-        <div class = 'list2'>
-	
-		<a href = 'details/{{x.id}}'>
-            <h3> {{ x.title|upper }} </h3>
-		    <p> {{ x.details }} </p>
-		    <p><small> {{ x.date}} </small></p>
-		</a>
-            
-             {# this part of the code uses the update function in my views.py file so as to enable me edit an item in a list#}
-             <div class='up_btn'>
-                <form action = '/update/{{ x.id}}' method = 'POST'>
-                    {% csrf_token%}
-                    <button type = 'submit'> <i class='bx bxs-edit'></i> </button>
+            {# this part of the code uses the search function in my views.py file so as to enable me search for an item in a list#}
+            <div>
+                <form method  = 'get' action = "{% url 'search' %}">
+                    <input type = 'text' class = 'search' name = 'search_field' placeholder = 'Search Item'/>
+                    <button type = 'submit' class = 'submit'> <i class='bx bx-search-alt-2'></i> </button>
                 </form>
-            </div> 
-             
-            {# this part of the code uses the remove function in my views.py file so as to enable me delete an item in a list#}
-            <div class = 'del_btn'>       
-		        <form action = '/del/{{ x.id }}' method = 'POST'>
-			        {% csrf_token %}
-			        <button type = 'submit' class = 'del_btn'> <i class='bx bx-trash'></i> </button>
-		        </form>
             </div>
-            <hr/>
-        </div>
 
-        {% endfor %}
-    </div> 
+            <div class = 'list'>
+            {% for x in item %}
+                <div class = 'list2'>
+	                <a href = "{% url 'details' x.id %}">
+                    <h3> {{ x.title|upper }} </h3>
+		            <p> {{ x.details }} </p>
+		            <p><small> {{ x.date}} </small></p>
+		            </a>
+            
+                    {# this part of the code uses the update function in my views.py file so as to enable me edit an item in a list#}
+                    <div class='up_btn'>
+                        <form action="{% url 'update' x.id %}" method = 'POST'>
+                            {% csrf_token%}
+                            <button type = 'submit'> <i class='bx bxs-edit'></i> </button>
+                        </form>
+                    </div> 
+             
+                    {# this part of the code uses the remove function in my views.py file so as to enable me delete an item in a list#}
+                    <div class = 'del_btn'>       
+		                <form action="{% url 'del' x.id %}" method = 'POST'>
+			                {% csrf_token %}
+			                <button type = 'submit' class = 'del_btn'> <i class='bx bx-trash'></i> </button>
+		                </form>
+                    </div>
+                    <hr/>
+            </div>
+            {% endfor %}
+        </div> 
 	</div>
 
 	</body>
 
     <footer>
-        <p> &copy; Copyright {{ date|date:'Y' }} by <a href = '#'>PythoGenius </a>
+        <p> &copy; Copyright {{ date|date:'Y' }} by <a href = 'https://github.com/Stephen842'>PythoGenius </a></p>
     </footer>
 </html>
 
